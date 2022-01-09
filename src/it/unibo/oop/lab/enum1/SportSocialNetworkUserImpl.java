@@ -3,6 +3,11 @@
  */
 package it.unibo.oop.lab.enum1;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+
 import it.unibo.oop.lab.socialnetwork.SocialNetworkUserImpl;
 import it.unibo.oop.lab.socialnetwork.User;
 
@@ -11,9 +16,9 @@ import it.unibo.oop.lab.socialnetwork.User;
  * Represents a social network user along with the sports he/she likes to do or
  * to follow.
  * 
- * 1) Define the same behavior as done on the previous exercise: - you can reuse
- * the same class, but... - ..now make explicit reference to an enumeration
- * Sport rather than a nested static class
+ * 1) Define the same behavior as done on the previous exercise: 
+ * - you can reuse the same class, but... 
+ * - ..now make explicit reference to an enumeration Sport rather than a nested static class
  * 
  * 
  * - NOTE: now we going to define Sport as an enumeration (in its own file
@@ -30,7 +35,7 @@ public class SportSocialNetworkUserImpl<U extends User> extends SocialNetworkUse
      * 
      * add a field to keep track of the set of sports followed/done by a user
      */
-
+	Set<Sport> usports=new TreeSet<>();
     /**
      * Builds a new {@link SportSocialNetworkUserImpl}.
      * 
@@ -78,7 +83,7 @@ public class SportSocialNetworkUserImpl<U extends User> extends SocialNetworkUse
      */
     // TODO
     public void addSport(final Sport sport) {
-
+    	usports.add(sport);
     }
 
     /**
@@ -90,6 +95,6 @@ public class SportSocialNetworkUserImpl<U extends User> extends SocialNetworkUse
      * @return true if the user likes sport s
      */
     public boolean hasSport(final Sport s) {
-        return false;
+        return usports.contains(s);
     }
 }
